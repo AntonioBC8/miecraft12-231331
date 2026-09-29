@@ -1,0 +1,6 @@
+{
+  "name": "Minecraft Web 3D",
+  "description": "Juego completo de Minecraft en 3D en el navegador con generación de mundo procedural, crafteo, modo supervivencia y creativo, ciclo día/noche y sonido.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

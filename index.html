@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <script>
+      // Prevent "Cannot set property fetch of #<Window> which has only a getter" in strict sandbox iframes
+      (function() {
+        try {
+          var desc = Object.getOwnPropertyDescriptor(window, 'fetch') || Object.getOwnPropertyDescriptor(Window.prototype, 'fetch');
+          if (desc && !desc.set) {
+            var origFetch = window.fetch ? window.fetch.bind(window) : null;
+            Object.defineProperty(window, 'fetch', {
+              get: function() { return origFetch; },
+              set: function(fn) { origFetch = fn; },
+              configurable: true,
+              enumerable: true
+            });
+          }
+        } catch (e) {
+          // fallback
+        }
+      })();
+    </script>
+    <title>Minecraft Web 3D</title>
+    <meta name="description" content="Juego completo de Minecraft en 3D en el navegador con generación de mundo procedural, crafteo, modo supervivencia y creativo, ciclo día/noche y sonido." />
+    <meta property="og:title" content="Minecraft Web 3D" />
+    <meta property="og:description" content="Juego completo de Minecraft en 3D en el navegador con generación de mundo procedural, crafteo, modo supervivencia y creativo, ciclo día/noche y sonido." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-stone-900 text-stone-100 overflow-hidden select-none m-0 p-0">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
